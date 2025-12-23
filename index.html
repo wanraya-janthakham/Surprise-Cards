@@ -32,7 +32,6 @@
  <div class="field cute">
  <label for="occasion">โอกาสพิเศษ</label>
  <div class="input-with-icon">
- <svg class="icon"><use href="icons/icons.svg#star"/></svg>
  <select id="occasion">
  <option value="anniversary">วันครบรอบ</option>
  <option value="birthday">วันเกิด</option>
@@ -47,7 +46,6 @@
  <div class="field cute" id="occasionCustomWrap" style="display:none">
  <label for="occasionCustom">ระบุโอกาส</label>
  <div class="input-with-icon">
- <svg class="icon"><use href="icons/icons.svg#star"/></svg>
  <input id="occasionCustom" maxlength="28" placeholder="เช่น วันไปทะเลครั้งแรก">
  </div>
  </div>
@@ -55,29 +53,62 @@
 <div class="field">
 <label for="name">ชื่อคนพิเศษ</label>
 <div class="input-with-icon">
-<svg class="icon"><use href="icons/icons.svg#heart"/></svg>
 <input id="name" placeholder="เช่น แฟนของเรา" maxlength="40">
 </div>
 </div>
 <div class="field">
 <label for="date">วันที่</label>
 <div class="input-with-icon">
-<svg class="icon"><use href="icons/icons.svg#star"/></svg>
 <input id="date" type="date">
 </div>
 </div>
 </div>
-<div class="field cute">
-<label for="message">ข้อความหวานๆ</label>
-<div class="input-with-icon">
-<svg class="icon"><use href="icons/icons.svg#bow"/></svg>
-<textarea id="message" rows="3" placeholder="พิมพ์ข้อความจากใจ" maxlength="180"></textarea>
-</div>
-</div>
+ <div class="field cute">
+  <label for="message">ข้อความหวานๆ</label>
+  <div class="input-with-icon">
+  <textarea id="message" rows="3" placeholder="พิมพ์ข้อความจากใจ" maxlength="180"></textarea>
+  </div>
+ </div>
+ <div class="field cute">
+  <label for="image">รูปภาพด้านหลัง (URL)</label>
+  <div class="input-with-icon">
+  <input id="image" placeholder="https://...">
+  <input id="imageFile" type="file" accept="image/*">
+  <button type="button" id="embedImageBtn" class="btn" style="margin-top:8px">ฝังรูปในลิงก์</button>
+  </div>
+  </div>
+  <div class="field cute">
+   <label for="backType">เนื้อหาด้านหลัง</label>
+   <div class="input-with-icon">
+     <select id="backType">
+       <option value="image">รูปภาพ</option>
+       <option value="music">เพลง</option>
+     </select>
+   </div>
+  </div>
+  <div class="field cute">
+   <label for="music">ลิงก์เพลง (YouTube/Spotify)</label>
+   <div class="input-with-icon">
+     <input id="music" placeholder="https://youtu.be/... หรือ https://open.spotify.com/...">
+   </div>
+  </div>
+  <div class="field cute">
+   <label>อัปโหลดไปยัง</label>
+   <div class="input-with-icon">
+    <select id="uploadDest">
+      <option value="cloudinary">Cloudinary</option>
+      <option value="imgur">Imgur</option>
+    </select>
+    <input id="cloudName" placeholder="Cloud name (Cloudinary)" style="margin-top:8px">
+    <input id="uploadPreset" placeholder="Upload preset (Cloudinary)" style="margin-top:8px">
+    <input id="imgurClientId" placeholder="Imgur Client-ID" style="margin-top:8px">
+    <button type="button" id="uploadRemoteBtn" class="btn primary" style="margin-top:8px">อัปโหลดและใส่ลิงก์</button>
+    <div id="uploadStatus" class="status" style="margin-top:8px"></div>
+   </div>
+  </div>
  <div class="field cute">
   <label for="palette">โทนสี</label>
   <div class="input-with-icon">
-  <svg class="icon"><use href="icons/icons.svg#star"/></svg>
   <select id="palette">
   <option value="pink">ชมพูพาสเทล</option>
   <option value="lavender">ลาเวนเดอร์</option>
@@ -90,7 +121,6 @@
  <div class="field cute">
   <label for="envelope">แบบซอง</label>
   <div class="input-with-icon">
-  <svg class="icon"><use href="icons/icons.svg#heart"/></svg>
   <select id="envelope">
    <option value="classic">คลาสสิก</option>
    <option value="heart">หัวใจ</option>
@@ -106,7 +136,6 @@
  <div class="field cute">
   <label for="lang">ภาษา</label>
   <div class="input-with-icon">
-  <svg class="icon"><use href="icons/icons.svg#star"/></svg>
   <select id="lang">
    <option value="th">ไทย</option>
    <option value="en">English</option>
