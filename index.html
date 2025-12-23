@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>การ์ดเซอร์ไพรส์น่ารัก</title>
+<meta name="theme-color" content="#ff80a6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="app">
+<div class="cute-bg"></div>
+<nav class="nav">
+<a class="brand" href="index.html">การ์ดเซอร์ไพรส์</a>
+<div class="links">
+<a class="active" href="index.html">สร้างการ์ด</a>
+<a href="templates.html">เทมเพลต</a>
+</div>
+<div class="lang"><select id="navLang"><option value="th">ไทย</option><option value="en">English</option></select></div>
+</nav>
+<div class="container">
+<header class="hero">
+<div class="emoji"><svg class="icon"><use href="icons/icons.svg#heart"/></svg> <svg class="icon"><use href="icons/icons.svg#star"/></svg> <svg class="icon"><use href="icons/icons.svg#bow"/></svg></div>
+<h1>การ์ดเซอร์ไพรส์น่ารัก</h1>
+<p class="subtitle">ปรับแต่งการ์ดวันสำคัญให้หวานละมุน แชร์และพิมพ์ได้ทันที</p>
+<div class="decors"><svg class="icon"><use href="icons/icons.svg#heart"/></svg><svg class="icon"><use href="icons/icons.svg#star"/></svg><svg class="icon"><use href="icons/icons.svg#bow"/></svg></div>
+</header>
+<div class="layout">
+<form id="builder" class="builder panel">
+ <div class="field cute">
+ <label for="occasion">โอกาสพิเศษ</label>
+ <div class="input-with-icon">
+ <svg class="icon"><use href="icons/icons.svg#star"/></svg>
+ <select id="occasion">
+ <option value="anniversary">วันครบรอบ</option>
+ <option value="birthday">วันเกิด</option>
+ <option value="valentine">วาเลนไทน์</option>
+ <option value="newyear">ปีใหม่</option>
+ <option value="christmas">คริสต์มาส</option>
+ <option value="thankyou">ขอบคุณ</option>
+  <option value="other">อื่นๆ (พิมพ์เอง)</option>
+ </select>
+ </div>
+ </div>
+ <div class="field cute" id="occasionCustomWrap" style="display:none">
+ <label for="occasionCustom">ระบุโอกาส</label>
+ <div class="input-with-icon">
+ <svg class="icon"><use href="icons/icons.svg#star"/></svg>
+ <input id="occasionCustom" maxlength="28" placeholder="เช่น วันไปทะเลครั้งแรก">
+ </div>
+ </div>
+<div class="grid">
+<div class="field">
+<label for="name">ชื่อคนพิเศษ</label>
+<div class="input-with-icon">
+<svg class="icon"><use href="icons/icons.svg#heart"/></svg>
+<input id="name" placeholder="เช่น แฟนของเรา" maxlength="40">
+</div>
+</div>
+<div class="field">
+<label for="date">วันที่</label>
+<div class="input-with-icon">
+<svg class="icon"><use href="icons/icons.svg#star"/></svg>
+<input id="date" type="date">
+</div>
+</div>
+</div>
+<div class="field cute">
+<label for="message">ข้อความหวานๆ</label>
+<div class="input-with-icon">
+<svg class="icon"><use href="icons/icons.svg#bow"/></svg>
+<textarea id="message" rows="3" placeholder="พิมพ์ข้อความจากใจ" maxlength="180"></textarea>
+</div>
+</div>
+ <div class="field cute">
+  <label for="palette">โทนสี</label>
+  <div class="input-with-icon">
+  <svg class="icon"><use href="icons/icons.svg#star"/></svg>
+  <select id="palette">
+  <option value="pink">ชมพูพาสเทล</option>
+  <option value="lavender">ลาเวนเดอร์</option>
+  <option value="mint">มิ้นต์</option>
+  <option value="sky">ฟ้าพาสเทล</option>
+  <option value="sunset">ซันเซ็ต</option>
+  </select>
+  </div>
+ </div>
+ <div class="field cute">
+  <label for="envelope">แบบซอง</label>
+  <div class="input-with-icon">
+  <svg class="icon"><use href="icons/icons.svg#heart"/></svg>
+  <select id="envelope">
+   <option value="classic">คลาสสิก</option>
+   <option value="heart">หัวใจ</option>
+   <option value="ribbon">ริบบิ้น</option>
+   <option value="minimal">มินิมอล</option>
+   <option value="euro">ฝายุโรปแนวยาว</option>
+   <option value="kawaii">คาวาอี้พาสเทล</option>
+   <option value="kitty">คิตตี้น่ารัก</option>
+  </select>
+  </div>
+ </div>
+
+ <div class="field cute">
+  <label for="lang">ภาษา</label>
+  <div class="input-with-icon">
+  <svg class="icon"><use href="icons/icons.svg#star"/></svg>
+  <select id="lang">
+   <option value="th">ไทย</option>
+   <option value="en">English</option>
+  </select>
+  </div>
+  </div>
+<div class="actions">
+<button type="button" id="previewBtn" class="btn primary">ดูการ์ด</button>
+<button type="button" id="copyLinkBtn" class="btn">คัดลอกลิงก์</button>
+<a id="openCard" class="btn" target="_blank">เปิดในแท็บใหม่</a>
+</div>
+</form>
+<div class="preview panel">
+<iframe id="previewFrame" title="ตัวอย่างการ์ด" src="card.html?lang=th&occasion=anniversary&palette=pink&envelope=classic&autoOpen=1&name=%E0%B9%81%E0%B8%9F%E0%B8%99%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B2&message=%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%AB%E0%B8%A7%E0%B8%B2%E0%B8%99%E0%B9%86"></iframe>
+</div>
+</div>
+</div>
+<script src="js/app.js"></script>
+<script src="js/i18n-index.js"></script>
+</body>
+</html>
