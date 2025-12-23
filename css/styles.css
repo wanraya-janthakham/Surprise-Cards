@@ -41,7 +41,7 @@ textarea{resize:vertical}
 #tplPreview{width:100%;height:600px;border:0;border-radius:14px;background:#fff}
 @media (max-width:680px){.grid{grid-template-columns:1fr}}
 .app .container{padding:20px}
-@media (max-width:940px){.layout{grid-template-columns:1fr;gap:16px}#previewFrame{height:72vh}.panel{padding:16px}}
+@media (max-width:940px){.layout{grid-template-columns:1fr;gap:16px}#previewFrame{height:80vh}.panel{padding:16px}}
 @media (max-width:600px){input,select,textarea{font-size:16px;padding:14px 16px} .btn{padding:12px 16px} .nav{padding:10px 16px}}
 *{-webkit-tap-highlight-color: transparent}
 .card-page{display:grid;place-items:center;min-height:100vh;background:linear-gradient(180deg,#fff, var(--soft))}

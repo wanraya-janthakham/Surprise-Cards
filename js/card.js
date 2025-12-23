@@ -32,6 +32,16 @@ document.getElementById("msg").textContent=data.msg
 document.getElementById("who").textContent=data.name
 document.getElementById("when").textContent=fmtDate(data.date,data.lang)
 document.title=customTitle||titleFor(data.occasion,data.lang)
+function fitCard(){
+  try{
+    const rect=card.getBoundingClientRect()
+    const availH=Math.max(320, window.innerHeight-24)
+    const availW=Math.max(320, window.innerWidth-24)
+    const scale=Math.min(1, availH/rect.height, availW/rect.width)
+    card.style.transform=`scale(${scale})`
+    card.style.transformOrigin='center center'
+  }catch(e){}
+}
 const backImg=document.getElementById("backImage")
 const imgHint=document.getElementById("imgHint")
 const musicWrap=document.getElementById("musicWrap")
@@ -146,15 +156,7 @@ if(!env || envStyle==='none'){
   const page=document.querySelector('.card-page')
   if(page){ page.appendChild(card) }
   card.classList.add('on-stage')
-function fitCard(){
-  const rect=card.getBoundingClientRect()
-  const availH=window.innerHeight-40
-  const availW=window.innerWidth-24
-  const scale=Math.min(1, availH/rect.height, availW/rect.width)
-  card.style.transform=`scale(${scale})`
-  card.style.transformOrigin='top center'
-}
-if(q.get('preview')==='1'){requestAnimationFrame(fitCard)}
+  requestAnimationFrame(fitCard)
 }
 if(q.get('autoOpen')==='1' && env){
   // เปิดซองอัตโนมัติสำหรับพรีวิว
@@ -162,10 +164,10 @@ if(q.get('autoOpen')==='1' && env){
     const wrap=document.querySelector('.envelope-wrap')
     if(wrap){wrap.classList.add('opened');setTimeout(()=>wrap.classList.add('revealed'),600)}
   })()
-  if(q.get('preview')==='1'){setTimeout(fitCard,650)}
+  setTimeout(fitCard,650)
 }
 let resizeTimer
-window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{try{fitCard()}catch(e){}},120)})
+window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(fitCard,120)})
 window.addEventListener('message',e=>{
   const payload=e.data
   if(!payload||payload.type!=="update") return
@@ -233,10 +235,10 @@ function openEnvelope(){
         const targetTop=(window.innerHeight-rect.height)/2
         card.style.left=`${targetLeft}px`
         card.style.top=`${targetTop}px`
-        card.style.transform='scale(1)'
         card.classList.add('on-stage')
+        fitCard()
       })
-  }
+    }
   setTimeout(()=>{wrap.classList.add('revealed');openEnvelope.opening=false},400)
   },350)
 }
