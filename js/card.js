@@ -42,6 +42,17 @@ function fitCard(){
     card.style.transformOrigin='center center'
   }catch(e){}
 }
+function fitEnvelope(){
+  try{
+    if(!env) return
+    const rect=env.getBoundingClientRect()
+    const availH=Math.max(320, window.innerHeight-24)
+    const availW=Math.max(320, window.innerWidth-24)
+    const scale=Math.min(1, availH/rect.height, availW/rect.width)
+    env.style.transform=`scale(${scale})`
+    env.style.transformOrigin='top center'
+  }catch(e){}
+}
 const backImg=document.getElementById("backImage")
 const imgHint=document.getElementById("imgHint")
 const musicWrap=document.getElementById("musicWrap")
@@ -158,6 +169,7 @@ if(!env || envStyle==='none'){
   card.classList.add('on-stage')
   requestAnimationFrame(fitCard)
 }
+requestAnimationFrame(fitEnvelope)
 if(q.get('autoOpen')==='1' && env){
   // เปิดซองอัตโนมัติสำหรับพรีวิว
   (function(){
@@ -167,7 +179,7 @@ if(q.get('autoOpen')==='1' && env){
   setTimeout(fitCard,650)
 }
 let resizeTimer
-window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(fitCard,120)})
+window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{fitEnvelope();fitCard()},120)})
 window.addEventListener('message',e=>{
   const payload=e.data
   if(!payload||payload.type!=="update") return
